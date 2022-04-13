@@ -252,7 +252,7 @@
     }
 
     body {
-      background-color: #fff;
+      background-color: lilac;
       font-family: sans-serif;
       overflow: hidden;
     }
@@ -288,14 +288,14 @@
     - <a href="javascript:void(workspace.setVisible(false))">Hide</a></p>
 
   <form id="options">
-    <select name="dir" onchange="document.forms.options.submit()">
+    <select name="dir">
       <option value="ltr">LTR</option>
       <option value="rtl">RTL</option>
     </select>
-    <select name="toolbox" onchange="document.forms.options.submit()">
+    <select name="toolbox">
       <option value="categories-untyped-variables">Categories (untyped variables)</option>
     </select>
-    <select name="side" onchange="document.forms.options.submit()">
+    <select name="side">
       <option value="start">Start</option>
       <option value="end">End</option>
       <option value="top">Top</option>
@@ -313,15 +313,15 @@
     <textarea id="importExport" style="width: 26%; height: 12em" onchange="taChange();" onkeyup="taChange()"></textarea>
   </p>
 
-  <p>
+  <!--<p>
     Stress test: &nbsp;
-    <input type="button" value="Airstrike!" onclick="airstrike(100)">
+    <!--<input type="button" value="Airstrike!" onclick="airstrike(100)">
     <input type="button" value="Spaghetti!" onclick="spaghetti(8)">
   </p>
   <p>
     Log events: &nbsp;
     <input type="checkbox" onclick="logEvents(this.checked)" id="logCheck">
-  </p>
+  </p>-->
 
   <!-- The next three blocks of XML are sample toolboxes for testing basic
   configurations.  For more information on building toolboxes, see https://developers.google.com/blockly/guides/configure/web/toolbox -->
