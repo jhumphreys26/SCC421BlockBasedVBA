@@ -17,6 +17,7 @@
   <script src="vba-blockly-master/blockly/blocks/variables.js"></script>
   <script src="vba-blockly-master/blockly/blocks/variables_dynamic.js"></script>
   <script src="vba-blockly-master/blockly/blocks/procedures.js"></script>
+  <script src="vba-blockly-master/blockly/blocks/formatting.js"></script>
   <script src="vba-blockly-master/blockly/generators/VBA.js"></script>
   <script src="vba-blockly-master/blockly/generators/VBA/math.js"></script>
   <script src="vba-blockly-master/blockly/generators/VBA/logic.js"></script>
@@ -28,7 +29,9 @@
   <script src="vba-blockly-master/blockly/generators/VBA/cells.js"></script>
   <script src="vba-blockly-master/blockly/generators/VBA/text.js"></script>
   <script src="vba-blockly-master/blockly/generators/VBA/worksheet.js"></script>
+  <script src="vba-blockly-master/blockly/generators/VBA/formatting.js"></script>
   <script src="blocks/test_blocks.js"></script>
+  "
   <script>
     'use strict';
     var workspace = null;
@@ -608,6 +611,9 @@
       <block type="font"></block>
       <block type="colour"></block>
       <block type="fill"></block>
+    </category>
+    <category name="Formatting" colour="0" custom="FORMATTING">
+      <block type="wrap_text"></block>
     </category>
   </xml>
 
