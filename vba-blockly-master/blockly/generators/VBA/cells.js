@@ -18,7 +18,7 @@ Blockly.VBA['get_cell_worksheet'] = function (block) {
   var value_col = Blockly.VBA.valueToCode(block, 'COL', Blockly.VBA.ORDER_ATOMIC);
   var value_worksheet = Blockly.VBA.valueToCode(block, 'SHEETNAME', Blockly.VBA.ORDER_ATOMIC);
   var code = 'Worksheets(' + value_worksheet + ').Cells(' + value_row + ',' + value_col + ')' + value_prop + '\n';
-  return code;
+  return [code, Blockly.VBA.ORDER_ATOMIC];
 };
 
 Blockly.VBA['set_cell_worksheet'] = function (block) {
