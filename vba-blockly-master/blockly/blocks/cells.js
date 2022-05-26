@@ -326,7 +326,7 @@ Blockly.defineBlocksWithJsonArray([
 		"message0": "Row Height",
 		"output": null,
 		"colour": 0,
-		"tooltip": "",
+		"tooltip": "Row height is measured in pixels",
 		"helpUrl": ""
 	},
 	{
@@ -334,7 +334,7 @@ Blockly.defineBlocksWithJsonArray([
 		"message0": "Column Width",
 		"output": null,
 		"colour": 0,
-		"tooltip": "",
+		"tooltip": "Column width is measured in pixels",
 		"helpUrl": ""
 	}
 ]);
