@@ -176,7 +176,11 @@ Blockly.defineBlocksWithJsonArray([
 					[
 						"Size",
 						"SIZE"
-					]
+					],
+					[
+						"Colour",
+						"COLOUR"
+					],
 				]
 			}
 		],
@@ -312,6 +316,22 @@ Blockly.defineBlocksWithJsonArray([
 			}
 		],
 		"inputsInline": true,
+		"output": null,
+		"colour": 0,
+		"tooltip": "",
+		"helpUrl": ""
+	},
+	{
+		"type": "rowheight",
+		"message0": "Row Height",
+		"output": null,
+		"colour": 0,
+		"tooltip": "",
+		"helpUrl": ""
+	},
+	{
+		"type": "columnwidth",
+		"message0": "Column Width",
 		"output": null,
 		"colour": 0,
 		"tooltip": "",

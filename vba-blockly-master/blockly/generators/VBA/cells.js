@@ -61,12 +61,28 @@ Blockly.VBA['font'] = function (block) {
   var dropdown_opt = block.getFieldValue('OPT');
   if (dropdown_opt == 'NAME') {
     dropdown_opt = 'Name';
-  } else {
+  }
+  if (dropdown_opt == 'SIZE') {
     dropdown_opt = 'Size';
-  };
+  }
+  if (dropdown_opt == 'COLOUR') {
+    dropdown_opt = 'Colour';
+  }
   var code = '.Font.' + dropdown_opt;
   return [code, Blockly.VBA.ORDER_ATOMIC];
 };
+
+Blockly.VBA['rowheight'] = function (block) {
+  var code = '.RowHeight';
+  return [code, Blockly.VBA.ORDER_ATOMIC];
+}
+
+Blockly.VBA['columnwidth'] = function (block) {
+  var code = '.ColumnWidth';
+  return [code, Blockly.VBA.ORDER_ATOMIC];
+}
+
+
 
 Blockly.VBA['colour'] = function (block) {
   var code = '.Interior.Color'
