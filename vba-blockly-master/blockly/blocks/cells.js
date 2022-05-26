@@ -209,4 +209,112 @@ Blockly.defineBlocksWithJsonArray([
 		"tooltip": "",
 		"helpUrl": ""
 	},
+	{
+		"type": "wrap",
+		"message0": "Wrap Text",
+		"output": null,
+		"colour": 0,
+		"tooltip": "",
+		"helpUrl": ""
+	},
+	{
+		"type": "border",
+		"message0": "Border %1",
+		"args0": [
+			{
+				"type": "field_dropdown",
+				"name": "OPT",
+				"options": [
+					[
+						"xlDiagonalDown",
+						"XLDIAGONALDOWN"
+					],
+					[
+						"xlDiagonalUp",
+						"XLDIAGONALUP"
+					],
+					[
+						"xlEdgeBottom",
+						"XLEDGEBOTTOM"
+					],
+					[
+						"xlEdgeLeft",
+						"XLEDGELEFT"
+					],
+					[
+						"xlEdgeRight",
+						"XLEDGERIGHT"
+					],
+					[
+						"xlEdgeTop",
+						"XLEDGETOP"
+					],
+					[
+						"xlInsideHorizontal",
+						"XLINSIDEHORIZONTAL"
+					],
+					[
+						"xlInsideVertical",
+						"XLINSIDEVERTICAL"
+					],
+				]
+			}
+		],
+		"inputsInLine": true,
+		"output": null,
+		"colour": 0,
+		"tooltip": "",
+		"helpUrl": ""
+	},
+	{
+		"type": "linestyle",
+		"message0": "Line Style %1",
+		"args0": [
+			{
+				"type": "field_dropdown",
+				"name": "OPT",
+				"options": [
+					[
+						"xlContinuous",
+						"XLCONTINUOUS"
+					],
+					[
+						"xldash",
+						"XLDASH"
+					],
+					[
+						"xlDashDot",
+						"XLDASHDOT"
+					],
+					[
+						"xlDashDotDot",
+						"XLDASHDOTDOT"
+					],
+					[
+						"xlDot",
+						"XLDOT"
+					],
+					[
+						"xlDouble",
+						"XLDOUBLE"
+					],
+					[
+						"XlLineStyleNone",
+						"XLLINESTYLENONE"
+					],
+					[
+						"xlSlantDashDot",
+						"XLSLANTDASHDOT"
+					]
+				]
+
+
+			}
+		],
+		"inputsInline": true,
+		"output": null,
+		"colour": 0,
+		"tooltip": "",
+		"helpUrl": ""
+	}
 ]);

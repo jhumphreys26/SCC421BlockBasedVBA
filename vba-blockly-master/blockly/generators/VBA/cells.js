@@ -73,6 +73,11 @@ Blockly.VBA['colour'] = function (block) {
   return [code, Blockly.VBA.ORDER_ATOMIC];
 };
 
+Blockly.VBA['wrap'] = function (block) {
+  var code = '.WrapText'
+  return [code, Blockly.VBA.ORDER_ATOMIC];
+}
+
 Blockly.VBA['fill'] = function (block) {
   var colour_col = block.getFieldValue('COL');
   //convert to RGB
@@ -81,5 +86,67 @@ Blockly.VBA['fill'] = function (block) {
   var g = parseInt(result[2], 16);
   var b = parseInt(result[3], 16);
   var code = 'RGB(' + r + ', ' + g + ', ' + b + ')';
+  return [code, Blockly.VBA.ORDER_ATOMIC];
+};
+
+Blockly.VBA['border'] = function (block) {
+  var dropdown_opt = block.getFieldValue('OPT');
+  if (dropdown_opt == "XLDIAGONALDOWN") {
+    dropdown_opt = "xlDiagonalDown";
+  }
+  if (dropdown_opt == "XLDIAGONALUP") {
+    dropdown_opt = "xlDiagonalUp";
+  }
+  if (dropdown_opt == "XLEDGEBOTTOM") {
+    dropdown_opt = "xlEdgeBottom";
+  }
+  if (dropdown_opt == "XLEDGELEFT") {
+    dropdown_opt = "xlEdgeLeft";
+  }
+  if (dropdown_opt == "XLEDGERIGHT") {
+    dropdown_opt = "xlEdgeRight";
+  }
+  if (dropdown_opt == "XLEDGETOP") {
+    dropdown_opt = "xlEdgeTop";
+  }
+  if (dropdown_opt == "XLINSIDEHORIZONTAL") {
+    dropdown_opt = "xlInsideHorizontal";
+  }
+  if (dropdown_opt == "XLINSIDEVERTICAL") {
+    dropdown_opt = "xlInsideVertical";
+  }
+
+  var code = ".Borders(" + dropdown_opt + ")";
+  return [code, Blockly.VBA.ORDER_ATOMIC];
+};
+
+Blockly.VBA['linestyle'] = function (block) {
+  var dropdown_opt = block.getFieldValue('OPT');
+  if (dropdown_opt == "XLCONTINUOUS") {
+    dropdown_opt = "xlContinuous";
+  }
+  if (dropdown_opt == "XLDASH") {
+    dropdown_opt = "xldash";
+  }
+  if (dropdown_opt == "XLDASHDOT") {
+    dropdown_opt = "xlDashDot";
+  }
+  if (dropdown_opt == "XLDASHDOTDOT") {
+    dropdown_opt = "xlDashDotDot";
+  }
+  if (dropdown_opt == "XLDOT") {
+    dropdown_opt = "xlDot";
+  }
+  if (dropdown_opt == "XLDOUBLE") {
+    dropdown_opt = "xlDouble";
+  }
+  if (dropdown_opt == "XLLINESTYLENONE") {
+    dropdown_opt = "XlLineStyleNone";
+  }
+  if (dropdown_opt == "XLSLANTDASHDOT") {
+    dropdown_opt = "xlSlantDashDot";
+  }
+
+  var code = ".LineStyle = XlLineStyle." + dropdown_opt;
   return [code, Blockly.VBA.ORDER_ATOMIC];
 };
