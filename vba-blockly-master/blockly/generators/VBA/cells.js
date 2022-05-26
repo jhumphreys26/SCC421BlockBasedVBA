@@ -18,6 +18,10 @@ Blockly.VBA['get_cell_worksheet'] = function (block) {
   var value_col = Blockly.VBA.valueToCode(block, 'COL', Blockly.VBA.ORDER_ATOMIC);
   var value_worksheet = Blockly.VBA.valueToCode(block, 'SHEETNAME', Blockly.VBA.ORDER_ATOMIC);
   var code = 'Worksheets(' + value_worksheet + ').Cells(' + value_row + ',' + value_col + ')' + value_prop + '\n';
+
+  if (value_worksheet == "ActiveSheet") {
+    code = 'ThisWorkbook.' + value_worksheet + '.Cells(' + value_row + ',' + value_col + ')' + value_prop + '\n';
+  }
   return [code, Blockly.VBA.ORDER_ATOMIC];
 };
 
@@ -30,6 +34,10 @@ Blockly.VBA['set_cell_worksheet'] = function (block) {
   //var code = 'Worksheets("' + value_worksheet + '").Cells(' + value_row + ', ' + value_col + ')' + value_prop + '\n';
 
   var code = 'ThisWorkbook.Worksheets(' + value_worksheet + ').Cells(' + value_row + ',' + value_col + ')' + value_prop + ' = ' + value_input + '\n';
+  if (value_worksheet == "ActiveSheet") {
+    code = 'ThisWorkbook.' + value_worksheet + '.Cells(' + value_row + ',' + value_col + ')' + value_prop + ' = ' + value_input + '\n';
+  }
+
   return code;
 };
 

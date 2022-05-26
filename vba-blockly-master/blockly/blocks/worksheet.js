@@ -68,23 +68,16 @@ Blockly.defineBlocksWithJsonArray([
 	},
 	{
 		"type": "active_sheet",
-		"message0": "Get property or method %1 of active sheet",
-		"args0": [
-			{
-				"type": "input_value",
-				"name": "PROP"
-			}
-		],
+		"message0": "Active Sheet",
 		"inputsInline": true,
-		"previousStatement": null,
-		"nextStatement": null,
-		"colour": 60,
+		"output": null,
+		"colour": 0,
 		"tooltip": "",
 		"helpUrl": ""
 	},
 	{
 		"type": "range_get",
-		"message0": "Get property or method  %1 from Range %2",
+		"message0": "Get property %1 in Range %2",
 		"args0": [
 			{
 				"type": "input_value",
@@ -104,7 +97,7 @@ Blockly.defineBlocksWithJsonArray([
 	},
 	{
 		"type": "range_set",
-		"message0": "Set property or method  %1 from Range %2 %3 to value %4",
+		"message0": "Set property %1 in Range %2 %3 to %4",
 		"args0": [
 			{
 				"type": "input_value",
@@ -124,7 +117,63 @@ Blockly.defineBlocksWithJsonArray([
 			}
 		],
 		"inputsInline": true,
+		"previousStatement": null,
+		"nextStatement": null,
+		"colour": 230,
+		"tooltip": "",
+		"helpUrl": ""
+	}, {
+		"type": "range_get_ws",
+		"message0": "Get property %1 in worksheet %2 from Range %3",
+		"args0": [
+			{
+				"type": "input_value",
+				"name": "NAME"
+			},
+			{
+				"type": "input_value",
+				"name": "WORKSHEET"
+			},
+			{
+				"type": "field_input",
+				"name": "RANGE",
+				"text": "A1:A2"
+			}
+		],
+		"inputsInline": false,
 		"output": null,
+		"colour": 230,
+		"tooltip": "",
+		"helpUrl": ""
+	},
+	{
+		"type": "range_set_ws",
+		"message0": "Set property %1 in worksheet %2 in Range %3 %4 to value %5",
+		"args0": [
+			{
+				"type": "input_value",
+				"name": "NAME"
+			},
+			{
+				"type": "input_value",
+				"name": "WORKSHEET",
+			},
+			{
+				"type": "field_input",
+				"name": "RANGE",
+				"text": "A1:A2"
+			},
+			{
+				"type": "input_dummy"
+			},
+			{
+				"type": "input_value",
+				"name": "VALUE"
+			}
+		],
+		"inputsInline": false,
+		"previousStatement": null,
+		"nextStatement": null,
 		"colour": 230,
 		"tooltip": "",
 		"helpUrl": ""
