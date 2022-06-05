@@ -8,7 +8,7 @@ Blockly.VBA['get_cell'] = function (block) {
   var value_prop = Blockly.VBA.valueToCode(block, 'PROP', Blockly.VBA.ORDER_ATOMIC);
   var value_row = Blockly.VBA.valueToCode(block, 'ROW', Blockly.VBA.ORDER_ATOMIC);
   var value_col = Blockly.VBA.valueToCode(block, 'COL', Blockly.VBA.ORDER_ATOMIC);
-  var code = '.Cells(' + value_row + ', ' + value_col + ')' + value_prop + '\n';
+  var code = '.Cells(' + value_row + ', ' + value_col + ')' + value_prop + ' \n';
   return [code, Blockly.VBA.ORDER_ATOMIC];
 };
 
@@ -17,10 +17,10 @@ Blockly.VBA['get_cell_worksheet'] = function (block) {
   var value_row = Blockly.VBA.valueToCode(block, 'ROW', Blockly.VBA.ORDER_ATOMIC);
   var value_col = Blockly.VBA.valueToCode(block, 'COL', Blockly.VBA.ORDER_ATOMIC);
   var value_worksheet = Blockly.VBA.valueToCode(block, 'SHEETNAME', Blockly.VBA.ORDER_ATOMIC);
-  var code = 'Worksheets(' + value_worksheet + ').Cells(' + value_row + ',' + value_col + ')' + value_prop + '\n';
+  var code = 'Worksheets(' + value_worksheet + ').Cells(' + value_row + ',' + value_col + ')' + value_prop + ' \n';
 
   if (value_worksheet == "ActiveSheet") {
-    code = 'ThisWorkbook.' + value_worksheet + '.Cells(' + value_row + ',' + value_col + ')' + value_prop + '\n';
+    code = 'ThisWorkbook.' + value_worksheet + '.Cells(' + value_row + ',' + value_col + ')' + value_prop + ' \n';
   }
   return [code, Blockly.VBA.ORDER_ATOMIC];
 };
@@ -33,9 +33,19 @@ Blockly.VBA['set_cell_worksheet'] = function (block) {
   var value_input = Blockly.VBA.valueToCode(block, 'VAL', Blockly.VBA.ORDER_ATOMIC);
   //var code = 'Worksheets("' + value_worksheet + '").Cells(' + value_row + ', ' + value_col + ')' + value_prop + '\n';
 
-  var code = 'ThisWorkbook.Worksheets(' + value_worksheet + ').Cells(' + value_row + ',' + value_col + ')' + value_prop + ' = ' + value_input + '\n';
+  if (value_prop.search("Borders") != -1) {
+    var code = 'ThisWorkbook.Worksheets(' + value_worksheet + ').Cells(' + value_row + ',' + value_col + ')' + value_prop + value_input + ' \n';
+  } else {
+    var code = 'ThisWorkbook.Worksheets(' + value_worksheet + ').Cells(' + value_row + ',' + value_col + ')' + value_prop + ' = ' + value_input + ' \n';
+  }
+
+
   if (value_worksheet == "ActiveSheet") {
-    code = 'ThisWorkbook.' + value_worksheet + '.Cells(' + value_row + ',' + value_col + ')' + value_prop + ' = ' + value_input + '\n';
+    if (value_prop.search("Borders") != -1) {
+      code = 'ThisWorkbook.' + value_worksheet + '.Cells(' + value_row + ',' + value_col + ')' + value_prop + value_input + ' \n';
+    } else {
+      code = 'ThisWorkbook.' + value_worksheet + '.Cells(' + value_row + ',' + value_col + ')' + value_prop + ' = ' + value_input + ' \n';
+    }
   }
 
   return code;
@@ -46,7 +56,12 @@ Blockly.VBA['set_cell'] = function (block) {
   var value_row = Blockly.VBA.valueToCode(block, 'ROW', Blockly.VBA.ORDER_ATOMIC);
   var value_col = Blockly.VBA.valueToCode(block, 'COL', Blockly.VBA.ORDER_ATOMIC);
   var value_val = Blockly.VBA.valueToCode(block, 'VAL', Blockly.VBA.ORDER_ATOMIC);
-  var code = '.Cells(' + value_row + ', ' + value_col + ')' + value_prop + ' = ' + value_val + '\n';
+
+  if (value_prop.search("Borders") != -1) {
+    var code = '.Cells(' + value_row + ', ' + value_col + ')' + value_prop + value_val + ' \n';
+  } else {
+    var code = '.Cells(' + value_row + ', ' + value_col + ')' + value_prop + ' = ' + value_val + ' \n';
+  }
   return code;
 };
 

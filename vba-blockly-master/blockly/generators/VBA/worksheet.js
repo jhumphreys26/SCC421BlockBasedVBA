@@ -25,7 +25,7 @@ Blockly.VBA['print_copies'] = function (block) {
   var value_copy = Blockly.VBA.valueToCode(block, 'COPY', Blockly.VBA.ORDER_ATOMIC);
   var value_start_page = Blockly.VBA.valueToCode(block, 'START_PAGE', Blockly.VBA.ORDER_ATOMIC);
   var value_end_page = Blockly.VBA.valueToCode(block, 'END_PAGE', Blockly.VBA.ORDER_ATOMIC);
-  var code = '.PrintOut From:=' + value_start_page + ' ,To:=' + value_end_page + ' ,Copies:=' + value_copy + '\n';
+  var code = '.PrintOut From:=' + value_start_page + ' ,To:=' + value_end_page + ' ,Copies:=' + value_copy + ' \n';
   return [code, Blockly.VBA.ORDER_ATOMIC];
 };
 
@@ -59,7 +59,11 @@ Blockly.VBA['range_set'] = function (block) {
   var value_name = Blockly.VBA.valueToCode(block, 'NAME', Blockly.VBA.ORDER_ATOMIC);
   var text_range = block.getFieldValue('RANGE');
   var value_value = Blockly.VBA.valueToCode(block, 'VALUE', Blockly.VBA.ORDER_ATOMIC);
-  var code = 'Range(\"' + text_range + '\")' + value_name + ' = ' + value_value;
+  if (value_name.search("Borders") != -1) {
+    var code = 'Range(\"' + text_range + '\")' + value_name + value_value + ' \n';
+  } else {
+    var code = 'Range(\"' + text_range + '\")' + value_name + ' = ' + value_value + ' \n';
+  }
   return code;
 };
 
@@ -69,10 +73,17 @@ Blockly.VBA['range_set_ws'] = function (block) {
   var text_range = block.getFieldValue('RANGE');
   var value_value = Blockly.VBA.valueToCode(block, 'VALUE', Blockly.VBA.ORDER_ATOMIC);
 
-  var code = 'ThisWorkbook.Worksheets(' + worksheet_value + ').Range(\"' + text_range + '\")' + value_name + ' = ' + value_value;
+  if (value_name.search("Borders") != -1) {
+    var code = 'ThisWorkbook.Worksheets(' + worksheet_value + ').Range(\"' + text_range + '\")' + value_name + value_value + ' \n';
+  } else {
+    var code = 'ThisWorkbook.Worksheets(' + worksheet_value + ').Range(\"' + text_range + '\")' + value_name + ' = ' + value_value + ' \n';
+  }
 
   if (worksheet_value == "ActiveSheet") {
-    code = 'ThisWorkbook.' + worksheet_value + '.Range(\"' + text_range + '\")' + value_name + ' = ' + value_value;;
+    code = 'ThisWorkbook.' + worksheet_value + '.Range(\"' + text_range + '\")' + value_name + ' = ' + value_value + ' \n';
+    if (value_name.search("Borders") != -1) {
+      code = 'ThisWorkbook.' + worksheet_value + '.Range(\"' + text_range + '\")' + value_name + value_value + ' \n';
+    }
   }
   return code;
 }
