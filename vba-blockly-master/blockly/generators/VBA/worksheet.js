@@ -60,7 +60,7 @@ Blockly.VBA['range_set'] = function (block) {
   var text_range = block.getFieldValue('RANGE');
   var value_value = Blockly.VBA.valueToCode(block, 'VALUE', Blockly.VBA.ORDER_ATOMIC);
   var code = 'Range(\"' + text_range + '\")' + value_name + ' = ' + value_value;
-  return [code, Blockly.VBA.ORDER_ATOMIC];
+  return code;
 };
 
 Blockly.VBA['range_set_ws'] = function (block) {
